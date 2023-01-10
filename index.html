@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD Etumayo</title>
+    <style>
+        body{
+            background-image: url("images/hbd_etuma.jpg");
+            background-repeat: n0-repeat;
+            background-size: 50% auto;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        input{
+            display: none;
+        }
+        .container{
+            width: 100%;
+            text-align: center;
+            margin-left: 2%;
+        }
+        h1{
+            font-weight: normal;
+            font-size: 35px;
+            position: relative;
+            margin: 400px 0;
+        }
+        h1::before{
+            content: ' ';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background-color: crimson;
+            bottom: -10px;
+            left: 50%;
+            transform: translate(-50%);
+            animation: animate 4s linear infinite;
+        }
+        @keyframes animate {
+            0%{
+                width: 100px;
+            }
+            50%{
+                width: 300px;
+            }
+            100%{
+                width: 100px;
+            }
+        }
+        .topcontent{
+            background-color: rgb(243,243,243);
+            width: 90%;
+            margin: 0 auto 20px auto;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 3px 3px 5px rgb(114, 110, 110);
+        }
+        h3{
+            height: 100%;
+            background-color: rgb(221,221,221);
+            line-height: 60px;
+            padding: 0 50px;
+            color: white;
+        }
+        label{
+            display: inline-block;
+            height: 100%;
+            margin: 0 20px;
+            line-height: 60px;
+            font-size: 18px;
+            color: gray;
+            cursor: pointer;
+            transition: color .5s;
+
+        }
+        label:hover{
+            color: black;
+        }
+        .photogallery{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+        .pic{
+            position: relative;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px lightcoral;
+            transition: 1s;
+        }
+        .pic img{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            transition: .5s;
+        }
+        .pic::before{
+            content: "Happy Birthday";           
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: -100px;
+            opacity: 0;
+            transition: .3s;
+            transition-delay: .2s;
+            z-index: 1;
+        }
+        .pic::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            border-radius: 10px;
+            height: 0;
+            background-color: rgba(0,0,0,.4);
+            transition: .3s;
+        }
+        .pic:hover::after{
+            height:100%;
+        }
+        .pic:hover::before{
+            margin-top: 0;
+            opacity: 1;
+
+        }
+        #check1:checked ~ .container .photogallery .pic{
+            opacity: 1;
+            transform: scale(1);
+            position: relative;
+            transition: .5s;
+        }
+        #check2:checked ~ .container .photogallery .fr{
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+        #check2:checked ~ .container .photogallery .kuttydb,
+        #check2:checked ~ .container .photogallery .ku{
+            opacity: 1;
+            transform: scale(1);
+            position: absolute;
+            transition: 0s;
+        }
+        #check3:checked ~ .container .photogallery .kuttydb{
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+        #check3:checked ~ .container .photogallery .fr,
+        #check3:checked ~ .container .photogallery .ku{
+            opacity: 1;
+            transform: scale(1);
+            position: absolute;
+            transition: 0s;
+        }
+        #check4:checked ~ .container .photogallery .ku{
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+        #check4:checked ~ .container .photogallery .fr,
+        #check4:checked ~ .container .photogallery .kuttydb{
+            opacity: 1;
+            transform: scale(1);
+            position: absolute;
+            transition: 0s;
+        }
+    </style>
+</head>
+<body>
+    <input type="radio" name="photos" id="check1" checked>
+    <input type="radio" name="photos" id="check2" >
+    <input type="radio" name="photos" id="check3" >
+    <input type="radio" name="photos" id="check4" >
+
+    <div class="container">
+        <h1>HappyBirthDay Papa!^-^</h1>
+        <h1>BigRat Gallery</h1>
+        <div class="topcontent">
+            <h3>Photo Gallery</h3>
+            <label for="check1">All Photos</label>
+            <label for="check2">ClickWithFriends</label>
+            <label for="check3">KuttyDB</label>
+            <label for="check4">PicsWithKeerthisha</label>
+        </div>
+        
+        <div class="photogallery">
+            <div class="pic kuttydb">
+                <img src="images1/ph1.jpg" alt="">
+            </div>   
+            <div class="pic kuttydb">
+                <img src="images1/ph2.jpg" alt="">
+            </div> 
+            <div class="pic ku">
+                <img src="images1/ku1.jpg" alt="">
+            </div> 
+            <div class="pic ku">
+                <img src="images1/ku2.jpg" alt="">
+            </div> 
+            <div class="pic kuttydb">
+                <img src="images1/ph3.jpg" alt="">
+            </div> 
+            <div class="pic ku">
+                <img src="images1/ku3.jpg" alt="">
+            </div> 
+            <div class="pic ku">
+                <img src="images1/ku4.jpg" alt="">
+            </div> 
+            <div class="pic kuttydb">
+                <img src="images1/ph4.jpg" alt="">
+            </div> 
+            <div class="pic ku">
+                <img src="images1/ku5.jpg" alt="">
+            </div> 
+            <div class="pic ku">
+                <img src="images1/ku6.jpg" alt="">
+            </div> 
+            <div class="pic ku">
+                <img src="images1/ku7.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku8.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku9.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku10.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku11.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku12.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku13.jpg" alt="">
+            </div>
+            <div class="pic kuttydb">
+                <img src="images1/ph5.jpg" alt="">
+            </div>
+            <div class="pic kuttydb">
+                <img src="images1/ph6.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku14.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku15.jpg" alt="">
+            </div>
+            <div class="pic kuttydb">
+                <img src="images1/ph7.jpg" alt="">
+            </div>
+            <div class="pic kuttydb">
+                <img src="images1/ph8.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku16.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku17.jpg" alt="">
+            </div>
+            <div class="pic kuttydb">
+                <img src="images1/ph9.jpg" alt="">
+            </div>
+            <div class="pic kuttydb">
+                <img src="images1/ph10.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku18.jpg" alt="">
+            </div>
+            <div class="pic ku">
+                <img src="images1/ku19.jpg" alt="">
+            </div>  
+            <div class="pic kuttydb">
+                <img src="images1/ph11.jpg" alt="">
+            </div>  
+            <div class="pic kuttydb">
+                <img src="images1/ph8.jpg" alt="">
+            </div>  
+            <div class="pic ku">
+                <img src="images1/ku20.jpg" alt="">
+            </div>  
+            <div class="pic ku">
+                <img src="images1/ku21.jpg" alt="">
+            </div>  
+            <div class="pic ku">
+                <img src="images1/ku21.jpg" alt="">
+            </div> 
+            <div class="pic br">
+                <img src="images1/br1.jpg" alt="">
+            </div>  
+            <div class="pic br">
+                <img src="images1/br2.jpg" alt="">
+            </div>  
+            <div class="pic br">
+                <img src="images1/br3.jpg" alt="">
+            </div>  
+            <div class="pic br">
+                <img src="images1/br4.jpg" alt="">
+            </div>  
+            <div class="pic br">
+                <img src="images1/br5.jpg" alt="">
+            </div>  
+            <div class="pic br">
+                <img src="images1/br6.jpg" alt="">
+            </div>   
+            <div class="pic fr">
+                <img src="images1/fr1.jpg" alt="">
+            </div>  
+            <div class="pic fr">
+                <img src="images1/fr2.jpg" alt="">
+            </div>  
+            <div class="pic fr">
+                <img src="images1/fr3.jpg" alt="">
+            </div>  
+            <div class="pic fr">
+                <img src="images1/fr4.jpg" alt="">
+            </div>  
+            <div class="pic fr">
+                <img src="images1/fr5.jpg" alt="">
+            </div>  
+            <div class="pic fr">
+                <img src="images1/fr6.jpg" alt="">
+            </div>  
+            <div class="pic fr">
+                <img src="images1/fr7.jpg" alt="">
+            </div>  
+            <div class="pic fr">
+                <img src="images1/fr8.jpg" alt="">
+            </div>  
+            <div class="pic fr">
+                <img src="images1/fr9.jpg" alt="">
+            </div>  
+            <div class="pic fr">
+                <img src="images1/fr10.jpg" alt="">
+            </div>  
+            <div class="pic fr">
+                <img src="images1/fr11.jpg" alt="">
+            </div>  
+        </div>
+    </div>
+</body>
+</html>
